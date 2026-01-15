@@ -1,0 +1,82 @@
+<div class="form-container">
+  <div class="form-header">
+    <h1>{{ isEditMode ? 'Editar Sesión' : 'Nueva Sesión' }}</h1>
+  </div>
+
+  <form [formGroup]="sessionForm" (ngSubmit)="onSubmit()" class="session-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="title">Título *</label>
+        <input type="text" id="title" formControlName="title" class="form-control">
+        <div *ngIf="sessionForm.get('title')?.invalid && sessionForm.get('title')?.touched" class="error-message">
+          Título requerido
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group full-width">
+        <label for="description">Descripción *</label>
+        <textarea id="description" formControlName="description" class="form-control" rows="4"></textarea>
+        <div *ngIf="sessionForm.get('description')?.invalid && sessionForm.get('description')?.touched" class="error-message">
+          Descripción requerida
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="category">Categoría *</label>
+        <select id="category" formControlName="category" class="form-control">
+          <option value="">Seleccione una categoría</option>
+          <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+        </select>
+        <div *ngIf="sessionForm.get('category')?.invalid && sessionForm.get('category')?.touched" class="error-message">
+          Categoría requerida
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="city">Ciudad *</label>
+        <select id="city" formControlName="city" class="form-control">
+          <option value="">Seleccione una ciudad</option>
+          <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+        </select>
+        <div *ngIf="sessionForm.get('city')?.invalid && sessionForm.get('city')?.touched" class="error-message">
+          Ciudad requerida
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="dateTime">Fecha y Hora *</label>
+        <input type="datetime-local" id="dateTime" formControlName="dateTime" class="form-control">
+        <div *ngIf="sessionForm.get('dateTime')?.invalid && sessionForm.get('dateTime')?.touched" class="error-message">
+          Fecha y hora requeridas
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Estado *</label>
+        <select id="status" formControlName="status" class="form-control">
+          <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group full-width">
+        <label for="imageUrl">URL de Imagen (opcional)</label>
+        <input type="url" id="imageUrl" formControlName="imageUrl" class="form-control" placeholder="https://ejemplo.com/imagen.jpg">
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" (click)="onCancel()" class="btn-secondary">Cancelar</button>
+      <button type="submit" [disabled]="sessionForm.invalid" class="btn-primary">
+        {{ isEditMode ? 'Actualizar' : 'Crear' }}
+      </button>
+    </div>
+  </form>
+</div>

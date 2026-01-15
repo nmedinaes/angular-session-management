@@ -1,0 +1,56 @@
+<div class="calendar-container">
+  <div class="calendar-header">
+    <h1>Calendario de Sesiones</h1>
+    
+    <div class="filters">
+      <div class="filter-group">
+        <label for="category">Categoría:</label>
+        <select id="category" [(ngModel)]="selectedCategory" (ngModelChange)="onCategoryChange()" class="filter-select">
+          <option [value]="null">Todas</option>
+          <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="status">Estado:</label>
+        <select id="status" [(ngModel)]="selectedStatus" (ngModelChange)="onStatusChange()" class="filter-select">
+          <option [value]="null">Todos</option>
+          <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="calendar-wrapper">
+    <div class="month-navigation">
+      <button (click)="previousMonth()" class="nav-button">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <h2>{{ getMonthName() }}</h2>
+      <button (click)="nextMonth()" class="nav-button">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <div class="calendar-grid">
+      <div class="day-header" *ngFor="let dayName of ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb']">
+        {{ dayName }}
+      </div>
+      
+      <div class="calendar-day" 
+           *ngFor="let day of getDaysInMonth()"
+           [class.other-month]="day.getMonth() !== currentMonth.getMonth()">
+        <div class="day-number">{{ day.getDate() }}</div>
+        <div class="day-sessions">
+          <div *ngFor="let session of getSessionsForDay(day)" 
+               class="session-item" 
+               [attr.data-category]="session.category"
+               [title]="session.title + ' - ' + (session.dateTime | date:'short')">
+            <span class="session-title">{{ session.title }}</span>
+            <span class="session-time">{{ session.dateTime | date:'HH:mm' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
