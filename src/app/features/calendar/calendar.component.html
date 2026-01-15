@@ -37,10 +37,15 @@
         {{ dayName }}
       </div>
       
-      <div class="calendar-day" *ngFor="let day of getDaysInMonth()">
+      <div class="calendar-day" 
+           *ngFor="let day of getDaysInMonth()"
+           [class.other-month]="day.getMonth() !== currentMonth.getMonth()">
         <div class="day-number">{{ day.getDate() }}</div>
         <div class="day-sessions">
-          <div *ngFor="let session of getSessionsForDay(day)" class="session-item" [attr.data-category]="session.category">
+          <div *ngFor="let session of getSessionsForDay(day)" 
+               class="session-item" 
+               [attr.data-category]="session.category"
+               [title]="session.title + ' - ' + (session.dateTime | date:'short')">
             <span class="session-title">{{ session.title }}</span>
             <span class="session-time">{{ session.dateTime | date:'HH:mm' }}</span>
           </div>

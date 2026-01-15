@@ -143,8 +143,17 @@ h1 {
   transition: all 0.2s ease;
 }
 
+.calendar-day.other-month {
+  background-color: #f9fafb;
+  opacity: 0.5;
+}
+
 .calendar-day:hover {
   background-color: #fafafa;
+}
+
+.calendar-day.other-month:hover {
+  background-color: #f3f4f6;
 }
 
 .day-number {

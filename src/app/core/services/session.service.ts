@@ -11,7 +11,12 @@ export class SessionService {
   constructor() {}
 
   getSessions(): Observable<Session[]> {
+    // Retornar siempre los datos más actualizados del signal
     return of(this.sessions()).pipe(delay(300));
+  }
+
+  getSessionsSignal() {
+    return this.sessions.asReadonly();
   }
 
   getSessionById(id: string): Observable<Session | undefined> {
@@ -54,26 +59,117 @@ export class SessionService {
   }
 
   private getMockSessions(): Session[] {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth();
+    
+    // Generar fechas para el mes actual y próximos meses
+    const generateDate = (day: number, monthOffset: number = 0, hour: number = 10) => {
+      const date = new Date(currentYear, currentMonth + monthOffset, day, hour, 0);
+      return date;
+    };
+
     return [
       {
         id: '1',
         title: 'Sesión de Formación Angular',
-        description: 'Taller práctico sobre Angular avanzado',
+        description: 'Taller práctico sobre Angular avanzado y mejores prácticas',
         category: 'Formación',
         city: 'Madrid',
-        dateTime: new Date('2024-12-20T10:00:00'),
+        dateTime: generateDate(5, 0, 10),
         status: 'Borrador',
         createdBy: 'admin1'
       },
       {
         id: '2',
         title: 'Reunión de Equipo',
-        description: 'Reunión mensual del equipo de desarrollo',
+        description: 'Reunión mensual del equipo de desarrollo para revisar objetivos',
         category: 'Reunión',
         city: 'Barcelona',
-        dateTime: new Date('2024-12-22T14:00:00'),
+        dateTime: generateDate(8, 0, 14),
         status: 'Bloqueado',
         createdBy: 'admin2'
+      },
+      {
+        id: '3',
+        title: 'Demo Producto Nuevo',
+        description: 'Presentación del nuevo producto a clientes potenciales',
+        category: 'Demo',
+        city: 'Valencia',
+        dateTime: generateDate(12, 0, 16),
+        status: 'Borrador',
+        createdBy: 'admin1'
+      },
+      {
+        id: '4',
+        title: 'Workshop TypeScript',
+        description: 'Taller intensivo sobre TypeScript avanzado',
+        category: 'Formación',
+        city: 'Madrid',
+        dateTime: generateDate(15, 0, 9),
+        status: 'Borrador',
+        createdBy: 'admin1'
+      },
+      {
+        id: '5',
+        title: 'Reunión de Planificación',
+        description: 'Planificación trimestral de proyectos',
+        category: 'Reunión',
+        city: 'Sevilla',
+        dateTime: generateDate(18, 0, 11),
+        status: 'Bloqueado',
+        createdBy: 'admin2'
+      },
+      {
+        id: '6',
+        title: 'Demo API REST',
+        description: 'Demostración de la nueva API REST a desarrolladores',
+        category: 'Demo',
+        city: 'Barcelona',
+        dateTime: generateDate(22, 0, 15),
+        status: 'Oculto',
+        createdBy: 'admin1'
+      },
+      {
+        id: '7',
+        title: 'Curso de Testing',
+        description: 'Formación en testing unitario y e2e',
+        category: 'Formación',
+        city: 'Madrid',
+        dateTime: generateDate(25, 0, 10),
+        status: 'Borrador',
+        createdBy: 'admin1'
+      },
+      {
+        id: '8',
+        title: 'Reunión de Retrospectiva',
+        description: 'Revisión del sprint anterior y mejora continua',
+        category: 'Reunión',
+        city: 'Valencia',
+        dateTime: generateDate(28, 0, 13),
+        status: 'Borrador',
+        createdBy: 'admin2'
+      },
+      // Sesiones para el próximo mes
+      {
+        id: '9',
+        title: 'Formación Docker',
+        description: 'Taller sobre contenedores y Docker',
+        category: 'Formación',
+        city: 'Barcelona',
+        dateTime: generateDate(3, 1, 10),
+        status: 'Borrador',
+        createdBy: 'admin1'
+      },
+      {
+        id: '10',
+        title: 'Demo Frontend',
+        description: 'Presentación de las nuevas funcionalidades del frontend',
+        category: 'Demo',
+        city: 'Madrid',
+        dateTime: generateDate(7, 1, 16),
+        status: 'Borrador',
+        createdBy: 'admin1'
       }
     ];
   }
