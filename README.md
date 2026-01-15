@@ -2,6 +2,13 @@
 
 Aplicación Angular con funcionalidades de autenticación, gestión de productos y diferentes roles de usuario.
 
+<img width="1908" height="994" alt="image" src="https://github.com/user-attachments/assets/df7f49a7-1fcb-40d0-b61f-25c87a3b2e27" />
+<img width="1874" height="949" alt="image" src="https://github.com/user-attachments/assets/62701994-883c-4113-8ad7-4999d868a4f4" />
+<img width="1888" height="953" alt="image" src="https://github.com/user-attachments/assets/53220c76-d38c-41b1-b8e5-18ebcaa0bedf" />
+<img width="1901" height="995" alt="image" src="https://github.com/user-attachments/assets/2076a81d-8398-4c5c-9fd6-6d957babd55a" />
+<img width="1886" height="989" alt="image" src="https://github.com/user-attachments/assets/e1788bfc-2d71-4f57-87be-b016de6c6692" />
+
+
 ## Características
 
 - **Autenticación**: Sistema de login con roles (Admin/Usuario)
