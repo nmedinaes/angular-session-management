@@ -62,7 +62,7 @@ export class SessionService {
         category: 'Formación',
         city: 'Madrid',
         dateTime: new Date('2024-12-20T10:00:00'),
-        status: 'borrador',
+        status: 'Borrador',
         createdBy: 'admin1'
       },
       {
@@ -72,7 +72,7 @@ export class SessionService {
         category: 'Reunión',
         city: 'Barcelona',
         dateTime: new Date('2024-12-22T14:00:00'),
-        status: 'bloqueado',
+        status: 'Bloqueado',
         createdBy: 'admin2'
       }
     ];

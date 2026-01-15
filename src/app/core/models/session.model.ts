@@ -1,5 +1,5 @@
 export type SessionCategory = 'Formación' | 'Reunión' | 'Demo';
-export type SessionStatus = 'borrador' | 'bloqueado' | 'oculto';
+export type SessionStatus = 'Borrador' | 'Bloqueado' | 'Oculto';
 
 export interface Session {
   id: string;

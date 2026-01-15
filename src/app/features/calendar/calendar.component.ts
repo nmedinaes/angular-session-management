@@ -19,7 +19,7 @@ export class CalendarComponent implements OnInit {
   currentMonth = new Date();
   
   categories: SessionCategory[] = ['Formación', 'Reunión', 'Demo'];
-  statuses: SessionStatus[] = ['borrador', 'bloqueado', 'oculto'];
+  statuses: SessionStatus[] = ['Borrador', 'Bloqueado', 'Oculto'];
 
   constructor(private sessionService: SessionService) {}
 

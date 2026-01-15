@@ -19,7 +19,7 @@ export class SessionFormComponent implements OnInit {
   sessionId: string | null = null;
 
   categories: SessionCategory[] = ['Formación', 'Reunión', 'Demo'];
-  statuses: SessionStatus[] = ['borrador', 'bloqueado', 'oculto'];
+  statuses: SessionStatus[] = ['Borrador', 'Bloqueado', 'Oculto'];
   cities: string[] = ['Madrid', 'Barcelona', 'Valencia', 'Sevilla'];
 
   constructor(
@@ -34,7 +34,7 @@ export class SessionFormComponent implements OnInit {
       category: ['', [Validators.required]],
       city: ['', [Validators.required]],
       dateTime: ['', [Validators.required]],
-      status: ['borrador', [Validators.required]],
+      status: ['Borrador', [Validators.required]],
       imageUrl: ['']
     });
   }
