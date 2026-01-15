@@ -88,7 +88,7 @@ export class SessionFormComponent implements OnInit {
               icon: 'error',
               title: 'Error',
               text: 'No se pudo actualizar la sesión',
-              confirmButtonColor: '#667eea'
+              confirmButtonColor: '#3b82f6'
             });
           }
         });
@@ -110,7 +110,7 @@ export class SessionFormComponent implements OnInit {
               icon: 'error',
               title: 'Error',
               text: 'No se pudo crear la sesión',
-              confirmButtonColor: '#667eea'
+              confirmButtonColor: '#3b82f6'
             });
           }
         });
@@ -121,7 +121,7 @@ export class SessionFormComponent implements OnInit {
         icon: 'warning',
         title: 'Formulario incompleto',
         text: 'Por favor completa todos los campos requeridos',
-        confirmButtonColor: '#667eea'
+        confirmButtonColor: '#3b82f6'
       });
     }
   }
@@ -140,7 +140,7 @@ export class SessionFormComponent implements OnInit {
         text: 'Los cambios no guardados se perderán',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#667eea',
+        confirmButtonColor: '#3b82f6',
         cancelButtonColor: '#6b7280',
         confirmButtonText: 'Sí, descartar',
         cancelButtonText: 'Cancelar'

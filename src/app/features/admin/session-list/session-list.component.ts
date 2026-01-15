@@ -60,7 +60,7 @@ export class SessionListComponent implements OnInit {
               icon: 'error',
               title: 'Error',
               text: 'No se pudo eliminar la sesión',
-              confirmButtonColor: '#667eea'
+              confirmButtonColor: '#3b82f6'
             });
           }
         });

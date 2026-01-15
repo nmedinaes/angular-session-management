@@ -33,7 +33,7 @@ export class MenuComponent implements OnInit {
       text: '¿Estás seguro de que deseas salir?',
       icon: 'question',
       showCancelButton: true,
-      confirmButtonColor: '#667eea',
+      confirmButtonColor: '#3b82f6',
       cancelButtonColor: '#6b7280',
       confirmButtonText: 'Sí, cerrar sesión',
       cancelButtonText: 'Cancelar'
