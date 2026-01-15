@@ -11,7 +11,6 @@ export class SessionService {
   constructor() {}
 
   getSessions(): Observable<Session[]> {
-    // Retornar siempre los datos más actualizados del signal
     return of(this.sessions()).pipe(delay(300));
   }
 
@@ -63,7 +62,6 @@ export class SessionService {
     const currentYear = now.getFullYear();
     const currentMonth = now.getMonth();
     
-    // Generar fechas para el mes actual y próximos meses
     const generateDate = (day: number, monthOffset: number = 0, hour: number = 10) => {
       const date = new Date(currentYear, currentMonth + monthOffset, day, hour, 0);
       return date;
@@ -150,7 +148,6 @@ export class SessionService {
         status: 'Borrador',
         createdBy: 'admin2'
       },
-      // Sesiones para el próximo mes
       {
         id: '9',
         title: 'Formación Docker',

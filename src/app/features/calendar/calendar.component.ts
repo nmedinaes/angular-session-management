@@ -22,7 +22,6 @@ export class CalendarComponent implements OnInit {
   statuses: SessionStatus[] = ['Borrador', 'Bloqueado', 'Oculto'];
 
   constructor(private sessionService: SessionService) {
-    // Efecto para actualizar automáticamente cuando cambien las sesiones
     effect(() => {
       const sessionsSignal = this.sessionService.getSessionsSignal();
       this.sessions = sessionsSignal();
@@ -68,22 +67,19 @@ export class CalendarComponent implements OnInit {
     const month = this.currentMonth.getMonth();
     const firstDay = new Date(year, month, 1);
     const lastDay = new Date(year, month + 1, 0);
-    const firstDayOfWeek = firstDay.getDay(); // 0 = Domingo, 1 = Lunes, etc.
+    const firstDayOfWeek = firstDay.getDay();
     
     const days: Date[] = [];
     
-    // Agregar días vacíos al inicio para alinear el calendario
     for (let i = firstDayOfWeek - 1; i >= 0; i--) {
       const prevMonthDay = new Date(year, month, -i);
       days.push(prevMonthDay);
     }
     
-    // Agregar días del mes actual
     for (let i = 1; i <= lastDay.getDate(); i++) {
       days.push(new Date(year, month, i));
     }
     
-    // Completar hasta 42 días (6 semanas) para mantener el grid consistente
     const remainingDays = 42 - days.length;
     for (let i = 1; i <= remainingDays; i++) {
       days.push(new Date(year, month + 1, i));
