@@ -1,0 +1,26 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-left">
+      <a routerLink="/calendar" routerLinkActive="active" class="nav-link">
+        <i class="fas fa-calendar"></i>
+        Calendario
+      </a>
+      <a *ngIf="isAdmin()" routerLink="/admin" routerLinkActive="active" class="nav-link">
+        <i class="fas fa-cog"></i>
+        Administrador
+      </a>
+    </div>
+    <div class="nav-right">
+      <div class="user-menu" (click)="toggleMenu()">
+        <span class="username">{{ currentUser()?.name }}</span>
+        <i class="fas fa-chevron-down"></i>
+        <div *ngIf="isMenuOpen" class="dropdown-menu">
+          <button (click)="logout()" class="dropdown-item">
+            <i class="fas fa-sign-out-alt"></i>
+            Cerrar sesión
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

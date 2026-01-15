@@ -1,0 +1,42 @@
+<div class="session-list-container">
+  <div class="header-actions">
+    <h1>Gestión de Sesiones</h1>
+    <a routerLink="/admin/new" class="btn-primary">
+      <i class="fas fa-plus"></i>
+      Nueva Sesión
+    </a>
+  </div>
+
+  <div class="sessions-grid">
+    <div *ngFor="let session of sessions" class="session-card">
+      <div *ngIf="session.imageUrl" class="session-image">
+        <img [src]="session.imageUrl" [alt]="session.title">
+      </div>
+      <div class="session-content">
+        <h3>{{ session.title }}</h3>
+        <p class="session-description">{{ session.description }}</p>
+        <div class="session-meta">
+          <span class="badge badge-category">{{ session.category }}</span>
+          <span class="badge badge-status" [attr.data-status]="session.status">{{ session.status }}</span>
+        </div>
+        <div class="session-info">
+          <span><i class="fas fa-map-marker-alt"></i> {{ session.city }}</span>
+          <span><i class="fas fa-calendar"></i> {{ session.dateTime | date:'short' }}</span>
+        </div>
+        <div class="session-actions">
+          <a [routerLink]="['/admin/edit', session.id]" class="btn-secondary">
+            <i class="fas fa-edit"></i>
+            Editar
+          </a>
+          <button 
+            *ngIf="canDelete(session)" 
+            (click)="deleteSession(session.id, session.title)" 
+            class="btn-danger">
+            <i class="fas fa-trash"></i>
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
