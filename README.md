@@ -1,4 +1,4 @@
-# Angular Session Management
+# Angular - Calendario Sesiones
 
 Aplicación Angular con funcionalidades de autenticación, gestión de productos y diferentes roles de usuario.
 
