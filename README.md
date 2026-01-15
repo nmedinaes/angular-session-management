@@ -50,8 +50,9 @@ La aplicación estará disponible en `http://localhost:4200`
 
 ## Tecnologías
 
-- Angular 17
-- TypeScript
-- RxJS
-- Font Awesome
-- Satoshi Font
+- **Angular 17** - Framework principal con Standalone Components
+- **TypeScript 5.2** - Lenguaje de programación
+- **RxJS 7.8** - Programación reactiva y observables
+- **SweetAlert2 11.10** - Alertas y notificaciones modernas
+- **Font Awesome 6.5** - Iconos
+- **Satoshi Font** - Tipografía del diseño (Fontshare)
